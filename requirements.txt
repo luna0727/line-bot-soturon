@@ -9,7 +9,7 @@ chardet #@ file:///Users/runner/miniforge3/conda-bld/chardet_1610093454858/work
 charset-normalizer==2.0.12
 click==8.0.1
 cloudpickle==2.0.0
-conda==4.10.1
+conda==4.3.16
 conda-package-handling #@ file:///Users/runner/miniforge3/conda-bld/conda-package-handling_1618231726924/work
 cryptography #@ file:///Users/runner/miniforge3/conda-bld/cryptography_1616851494586/work
 cycler==0.11.0
