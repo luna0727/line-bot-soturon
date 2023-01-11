@@ -11,6 +11,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
+import psycopg2
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
+conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords)
 
 @app.route("/callback", methods=['POST'])
 def callback():
