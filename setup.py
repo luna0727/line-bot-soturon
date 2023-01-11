@@ -166,12 +166,12 @@ with open('README.rst', 'r') as fd:
     long_description = fd.read()
 
 setup(
-    name="line-bot-sdk",
+    name="line-bot-soturon",
     version=__version__,
-    author="RyosukeHasebe",
-    author_email="hsb.1014@gmail.com",
-    maintainer="RyosukeHasebe",
-    maintainer_email="hsb.1014@gmail.com",
+    author="lunahara",
+    author_email="eruryu43@gmail.com",
+    maintainer="lunahara",
+    maintainer_email="eruryu43@gmail.com",
     url="https://github.com/line/line-bot-sdk-python",
     description="LINE Messaging API SDK for Python",
     long_description=long_description,
