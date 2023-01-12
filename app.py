@@ -8,13 +8,13 @@ from io import BytesIO
 import psycopg2
 
 
-LINE_CHANNEL_ACCESS_TOKEN = "~~~~~あなたのチャネルアクセストークン~~~~~"
-LINE_CHANNEL_SECRET = "~~~~~あなたのチャネルシークレット~~~~~"
-DATABASE_URL = "~~~~~あなたのデータベースURL~~~~~" # 後ほどHerokuでPostgreSQLデータベースURLを取得
-HEROKU_APP_NAME = "~~~~~あなたのHerokuアプリ名~~~~~" # 後ほど作成するHerokuアプリ名
+LINE_CHANNEL_ACCESS_TOKEN = os.environ["YOUR_CHANNEL_ACCESS_TOKEN"]
+LINE_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
+DATABASE_URL = os.environ["postgres://hararuna:iaSV00UIb8S3e3JRk8A8pm64JCw2QRLW@dpg-cei8t4pa6gdi7rts5q60-a/cal_11"]
+RENDER_APP_NAME = os.environ["line_bot_230104"]
 
 app = Flask(__name__)
-Heroku = "https://{}.herokuapp.com/".format(HEROKU_APP_NAME)
+Render = "https://line-bot-230104.onrender.com".format(RENDER_APP_NAME)
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
@@ -63,8 +63,8 @@ def handle_image(event):
     line_bot_api.reply_message(
         event.reply_token,
         ImageSendMessage(
-            original_content_url = Heroku + image_path["main"],
-            preview_image_url = Heroku + image_path["preview"]
+            original_content_url = Render + image_path["main"],
+            preview_image_url = Render + image_path["preview"]
         )
     )
     print("画像の送信完了!!")
